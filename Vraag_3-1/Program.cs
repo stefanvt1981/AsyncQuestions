@@ -1,6 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Diagnostics;
 
+var threadId = Thread.CurrentThread.ManagedThreadId;
+Console.WriteLine($"threadid: {threadId}");
+
 Stopwatch sw = new Stopwatch();
 
 sw.Start();
@@ -18,19 +21,22 @@ internal class Worker
     public async Task DoSomething()
     {
         await Task.Delay(3000);
-        Console.WriteLine("Doing Something...");
+        var threadId = Thread.CurrentThread.ManagedThreadId;
+        Console.WriteLine($"Doing Something... {threadId}");
         return;
     }
 
     public async Task DoSomethingElse()
     {
         await Task.Delay(750);
-        Console.WriteLine("Doing Something Else...");
+        var threadId = Thread.CurrentThread.ManagedThreadId;
+        Console.WriteLine($"Doing Something Else... {threadId}");
     }
 
     public async Task DoSomethingMore()
     {
         await Task.Delay(500);
-        Console.WriteLine("Doing Something More...");
+        var threadId = Thread.CurrentThread.ManagedThreadId;
+        Console.WriteLine($"Doing Something More... {threadId}");
     }
 }

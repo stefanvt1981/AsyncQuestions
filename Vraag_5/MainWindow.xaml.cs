@@ -44,10 +44,10 @@ namespace Vraag_5
             Results.Items.Add("Do work start");
 
             Results.Items.Add("Do waitasync start");
-            Task task = WaitAsync();
-            Results.Items.Add("Do waitasync sop");
-
+            Task task = WaitAsync();            
             task.GetAwaiter().GetResult();
+            Results.Items.Add("Do waitasync stop");
+
             Results.Items.Add("Do work done");
         }
     }
