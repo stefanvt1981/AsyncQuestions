@@ -1,6 +1,6 @@
 ﻿var w = new Worker();
 
-w.DoSomething().Wait();
+Task.Run(w.DoSomething);
 
 w.DoSomethingElse().GetAwaiter().GetResult();
 

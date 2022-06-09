@@ -3,7 +3,10 @@ Console.WriteLine($"threadid: {threadId}");
 
 var w = new Worker();
 
-w.DoSomething().Wait();
+Task.Run(w.DoSomething);
+
+threadId = Thread.CurrentThread.ManagedThreadId;
+Console.WriteLine($"threadid: {threadId}");
 
 w.DoSomethingElse().GetAwaiter().GetResult();
 
